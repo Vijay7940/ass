@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing Toggle</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .pricing-card {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Pricing Plans</h2>
+
+    <!-- Toggle Switch -->
+    <div class="text-center mb-4">
+        <span>Monthly</span>
+        <input type="checkbox" id="toggleSwitch" class="form-check-input mx-2">
+        <span>Yearly</span>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="pricing-card">
+                <h4>Basic</h4>
+                <p class="price" id="basicPrice">₹200/mo</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="pricing-card">
+                <h4>Standard</h4>
+                <p class="price" id="standardPrice">₹500/mo</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="pricing-card">
+                <h4>Premium</h4>
+                <p class="price" id="premiumPrice">₹800/mo</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const toggle = document.getElementById("toggleSwitch");
+
+    toggle.addEventListener("change", function () {
+        if (toggle.checked) {
+            // Yearly prices (discounted)
+            document.getElementById("basicPrice").innerText = "₹2000/yr";
+            document.getElementById("standardPrice").innerText = "₹5000/yr";
+            document.getElementById("premiumPrice").innerText = "₹8000/yr";
+        } else {
+            // Monthly prices
+            document.getElementById("basicPrice").innerText = "₹200/mo";
+            document.getElementById("standardPrice").innerText = "₹500/mo";
+            document.getElementById("premiumPrice").innerText = "₹800/mo";
+        }
+    });
+</script>
+
+</body>
+</html>

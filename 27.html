@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Weekly Weather Dashboard</h2>
+
+    <div class="row">
+        <!-- Line Chart -->
+        <div class="col-md-6 mb-4">
+            <h5 class="text-center">Temperature (°C)</h5>
+            <canvas id="lineChart"></canvas>
+        </div>
+
+        <!-- Bar Chart -->
+        <div class="col-md-6 mb-4">
+            <h5 class="text-center">Rainfall (mm)</h5>
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="text-center">
+        <h5>Weather Distribution</h5>
+        <canvas id="pieChart" width="300"></canvas>
+    </div>
+</div>
+
+<script>
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    // Line Chart (Temperature)
+    new Chart(document.getElementById('lineChart'), {
+        type: 'line',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Temperature',
+                data: [30, 32, 31, 29, 28, 27, 26],
+                borderColor: 'blue',
+                fill: false
+            }]
+        }
+    });
+
+    // Bar Chart (Rainfall)
+    new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Rainfall',
+                data: [5, 10, 8, 6, 7, 3, 4],
+                backgroundColor: 'green'
+            }]
+        }
+    });
+
+    // Pie Chart (Weather Distribution)
+    new Chart(document.getElementById('pieChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Sunny', 'Rainy', 'Cloudy'],
+            datasets: [{
+                data: [4, 2, 1],
+                backgroundColor: ['orange', 'blue', 'gray']
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>

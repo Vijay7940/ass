@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Performance Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Student Performance Dashboard</h2>
+
+    <div class="row">
+        <!-- Marks Chart -->
+        <div class="col-md-6 mb-4">
+            <h5 class="text-center">Marks by Subject</h5>
+            <canvas id="marksChart"></canvas>
+        </div>
+
+        <!-- Attendance Chart -->
+        <div class="col-md-6 mb-4">
+            <h5 class="text-center">Attendance</h5>
+            <canvas id="attendanceChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Progress Chart -->
+    <div class="text-center">
+        <h5>Monthly Progress</h5>
+        <canvas id="progressChart"></canvas>
+    </div>
+</div>
+
+<script>
+    // Marks (Bar Chart)
+    new Chart(document.getElementById('marksChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Math', 'Science', 'English', 'Computer'],
+            datasets: [{
+                label: 'Marks',
+                data: [85, 78, 90, 88],
+                backgroundColor: ['red', 'blue', 'green', 'orange']
+            }]
+        }
+    });
+
+    // Attendance (Pie Chart)
+    new Chart(document.getElementById('attendanceChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Present', 'Absent'],
+            datasets: [{
+                data: [85, 15],
+                backgroundColor: ['green', 'red']
+            }]
+        }
+    });
+
+    // Progress (Line Chart)
+    new Chart(document.getElementById('progressChart'), {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+                label: 'Performance',
+                data: [70, 75, 80, 85, 88],
+                borderColor: 'blue',
+                fill: false
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>

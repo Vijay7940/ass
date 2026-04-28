@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Gallery</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Product Gallery</h2>
+    <div class="row" id="productContainer"></div>
+</div>
+
+<script>
+    // JSON Dataset
+    const products = [
+        {
+            name: "Laptop",
+            price: 55000,
+            image: "https://via.placeholder.com/300"
+        },
+        {
+            name: "Smartphone",
+            price: 20000,
+            image: "https://via.placeholder.com/300"
+        },
+        {
+            name: "Headphones",
+            price: 3000,
+            image: "https://via.placeholder.com/300"
+        },
+        {
+            name: "Smartwatch",
+            price: 7000,
+            image: "https://via.placeholder.com/300"
+        }
+    ];
+
+    const container = document.getElementById("productContainer");
+
+    // Function to create product cards
+    function displayProducts() {
+        products.forEach((product, index) => {
+            const col = document.createElement("div");
+            col.className = "col-md-3 mb-4";
+
+            col.innerHTML = `
+                <div class="card">
+                    <img src="${product.image}" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5>${product.name}</h5>
+                        <p>₹${product.price}</p>
+                        <button class="btn btn-success" onclick="buyProduct(${index})">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(col);
+        });
+    }
+
+    // Buy Now interaction
+    function buyProduct(index) {
+        const product = products[index];
+        alert("You selected: " + product.name + " (₹" + product.price + ")");
+    }
+
+    // Load products
+    displayProducts();
+</script>
+
+</body>
+</html>

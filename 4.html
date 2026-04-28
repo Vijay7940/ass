@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Profile Previewer</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .profile-card {
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Real-Time Profile Previewer</h2>
+
+    <div class="row">
+        <!-- Form Section -->
+        <div class="col-md-6">
+            <h4>Enter Details</h4>
+
+            <input type="text" id="nameInput" class="form-control mb-2" placeholder="Enter Name">
+            <input type="text" id="roleInput" class="form-control mb-2" placeholder="Enter Role">
+            <textarea id="bioInput" class="form-control mb-2" placeholder="Enter Bio"></textarea>
+            <input type="text" id="imageInput" class="form-control mb-2" placeholder="Enter Image URL">
+        </div>
+
+        <!-- Profile Preview -->
+        <div class="col-md-6">
+            <h4>Profile Preview</h4>
+
+            <div class="profile-card">
+                <img id="profileImage" src="https://via.placeholder.com/100" alt="Profile Image">
+                <h3 id="profileName">Your Name</h3>
+                <p id="profileRole">Your Role</p>
+                <p id="profileBio">Your bio will appear here...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get elements
+    const nameInput = document.getElementById("nameInput");
+    const roleInput = document.getElementById("roleInput");
+    const bioInput = document.getElementById("bioInput");
+    const imageInput = document.getElementById("imageInput");
+
+    // Preview elements
+    const profileName = document.getElementById("profileName");
+    const profileRole = document.getElementById("profileRole");
+    const profileBio = document.getElementById("profileBio");
+    const profileImage = document.getElementById("profileImage");
+
+    // Event listeners for real-time update
+    nameInput.addEventListener("input", () => {
+        profileName.innerText = nameInput.value || "Your Name";
+    });
+
+    roleInput.addEventListener("input", () => {
+        profileRole.innerText = roleInput.value || "Your Role";
+    });
+
+    bioInput.addEventListener("input", () => {
+        profileBio.innerText = bioInput.value || "Your bio will appear here...";
+    });
+
+    imageInput.addEventListener("input", () => {
+        profileImage.src = imageInput.value || "https://via.placeholder.com/100";
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery Filter</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Image Gallery</h2>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mb-4">
+        <button class="btn btn-primary m-1" onclick="filterImages('all')">All</button>
+        <button class="btn btn-success m-1" onclick="filterImages('nature')">Nature</button>
+        <button class="btn btn-warning m-1" onclick="filterImages('animals')">Animals</button>
+    </div>
+
+    <!-- Gallery -->
+    <div class="row gallery" id="gallery"></div>
+</div>
+
+<script>
+    const images = [
+        { src: "https://picsum.photos/id/1015/400/300", category: "nature" },
+        { src: "https://picsum.photos/id/1025/400/300", category: "animals" },
+        { src: "https://picsum.photos/id/1016/400/300", category: "nature" },
+        { src: "https://picsum.photos/id/237/400/300", category: "animals" }
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    function displayImages(list) {
+        gallery.innerHTML = "";
+
+        list.forEach(img => {
+            const div = document.createElement("div");
+            div.className = "col-md-3 mb-3";
+
+            div.innerHTML = `
+                <img src="${img.src}" alt="Image">
+            `;
+
+            gallery.appendChild(div);
+        });
+    }
+
+    function filterImages(category) {
+        if (category === "all") {
+            displayImages(images);
+        } else {
+            const filtered = images.filter(img => img.category === category);
+            displayImages(filtered);
+        }
+    }
+
+    // Initial load
+    displayImages(images);
+</script>
+
+</body>
+</html>

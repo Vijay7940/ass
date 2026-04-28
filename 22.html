@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Layout</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background: #0d6efd;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Layout */
+        .container-flex {
+            display: flex;
+            min-height: 80vh;
+        }
+
+        /* Sidebar */
+        aside {
+            width: 25%;
+            background: #f1f1f1;
+            padding: 15px;
+        }
+
+        /* Content */
+        main {
+            width: 75%;
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #212529;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .container-flex {
+                flex-direction: column;
+            }
+            aside, main {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h2>My Blog</h2>
+    <p>Welcome to my blog page</p>
+</header>
+
+<!-- Main Layout -->
+<div class="container-flex">
+
+    <!-- Sidebar -->
+    <aside>
+        <h4>Categories</h4>
+        <ul>
+            <li>Technology</li>
+            <li>Education</li>
+            <li>Travel</li>
+        </ul>
+
+        <h4>Recent Posts</h4>
+        <ul>
+            <li>Web Development Tips</li>
+            <li>Learning JavaScript</li>
+        </ul>
+    </aside>
+
+    <!-- Content -->
+    <main>
+        <h3>Blog Title</h3>
+        <p><strong>Date:</strong> April 2026</p>
+        <p>
+            This is a sample blog content area. You can write articles, share ideas,
+            and display images here. This section takes more space compared to sidebar.
+        </p>
+
+        <p>
+            CSS Flexbox is used to create this layout, making it responsive and easy to manage.
+        </p>
+    </main>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 My Blog | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
