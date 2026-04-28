@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Gallery Filter</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background: #f4f4f4;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .buttons {
+        margin-bottom: 20px;
+    }
+
+    .buttons button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background: #007bff;
+        color: white;
+    }
+
+    .buttons button:hover {
+        opacity: 0.8;
+    }
+
+    /* Gallery */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Image Gallery</h2>
+
+<!-- Buttons -->
+<div class="buttons">
+    <button onclick="filterImages('all')">All</button>
+    <button onclick="filterImages('nature')">Nature</button>
+    <button onclick="filterImages('animals')">Animals</button>
+</div>
+
+<!-- Gallery -->
+<div class="gallery" id="gallery"></div>
+
+<script>
+    const images = [
+        { src: "https://picsum.photos/id/1015/400/300", category: "nature" },
+        { src: "https://picsum.photos/id/1025/400/300", category: "animals" },
+        { src: "https://picsum.photos/id/1016/400/300", category: "nature" },
+        { src: "https://picsum.photos/id/237/400/300", category: "animals" }
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    function displayImages(list) {
+        gallery.innerHTML = "";
+
+        list.forEach(img => {
+            const div = document.createElement("div");
+            div.innerHTML = `<img src="${img.src}" alt="Image">`;
+            gallery.appendChild(div);
+        });
+    }
+
+    function filterImages(category) {
+        if (category === "all") {
+            displayImages(images);
+        } else {
+            const filtered = images.filter(img => img.category === category);
+            displayImages(filtered);
+        }
+    }
+
+    // Initial load
+    displayImages(images);
+</script>
+
+</body>
+</html>

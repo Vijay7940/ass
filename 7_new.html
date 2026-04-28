@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Navbar</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+        background: #222;
+        color: white;
+        padding: 10px 20px;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* Menu */
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+
+    .nav-links li {
+        position: relative;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 8px;
+        display: block;
+    }
+
+    .nav-links a:hover {
+        background: #444;
+        border-radius: 5px;
+    }
+
+    /* Dropdown */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        background: #333;
+        list-style: none;
+        padding: 0;
+        min-width: 150px;
+        border-radius: 5px;
+    }
+
+    .dropdown-menu li a {
+        padding: 10px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background: #222;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: static;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">MyWebsite</div>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Services ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">App Development</a></li>
+                <li><a href="#">SEO</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<script>
+    const toggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const dropdown = document.querySelector(".dropdown");
+
+    // Mobile menu toggle
+    toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    // Dropdown click for mobile
+    dropdown.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+            dropdown.classList.toggle("active");
+        }
+    });
+</script>
+
+</body>
+</html>

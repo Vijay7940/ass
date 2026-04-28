@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>String Operations</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .buttons {
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .reverse { background: #007bff; }
+    .upper { background: #28a745; }
+    .lower { background: #ffc107; color: black; }
+    .length { background: #17a2b8; }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    .result {
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>String Operations</h2>
+
+    <input type="text" id="inputString" placeholder="Enter a string">
+
+    <div class="buttons">
+        <button class="reverse" onclick="reverseString()">Reverse</button>
+        <button class="upper" onclick="toUpper()">Uppercase</button>
+        <button class="lower" onclick="toLower()">Lowercase</button>
+        <button class="length" onclick="getLength()">Length</button>
+    </div>
+
+    <div class="result">
+        Result: <span id="result"></span>
+    </div>
+</div>
+
+<script>
+    const input = document.getElementById("inputString");
+    const result = document.getElementById("result");
+
+    function reverseString() {
+        const str = input.value;
+        result.innerText = str.split("").reverse().join("");
+    }
+
+    function toUpper() {
+        result.innerText = input.value.toUpperCase();
+    }
+
+    function toLower() {
+        result.innerText = input.value.toLowerCase();
+    }
+
+    function getLength() {
+        result.innerText = input.value.length;
+    }
+</script>
+
+</body>
+</html>

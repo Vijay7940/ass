@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reusable Skill Bar Component</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+
+    .container {
+        width: 60%;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .skill-container {
+        margin: 20px 0;
+    }
+
+    .skill-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    .skill-label {
+        font-weight: bold;
+    }
+
+    .progress {
+        width: 100%;
+        background: #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 20px;
+        background: #4caf50;
+        width: 0;
+        transition: width 0.5s;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Skill Bar Component</h2>
+
+    <!-- Skill Bars -->
+    <div id="skills"></div>
+</div>
+
+<script>
+    function createSkillBar(skillName, percentage) {
+        const container = document.getElementById("skills");
+
+        const skillDiv = document.createElement("div");
+        skillDiv.classList.add("skill-container");
+
+        skillDiv.innerHTML = `
+            <div class="skill-header">
+                <span class="skill-label">${skillName}</span>
+                <span>${percentage}%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width: ${percentage}%"></div>
+            </div>
+        `;
+
+        container.appendChild(skillDiv);
+    }
+
+    // Example usage
+    createSkillBar("HTML", 90);
+    createSkillBar("CSS", 80);
+    createSkillBar("JavaScript", 75);
+    createSkillBar("Bootstrap", 85);
+</script>
+
+</body>
+</html>

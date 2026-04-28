@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Performance Dashboard</title>
+
+<!-- Load Chart.js OFFLINE -->
+<script src="chart.js"></script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f4f4f4;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    /* Layout */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        flex: 1 1 400px;
+        max-width: 500px;
+    }
+
+    canvas {
+        max-width: 100%;
+    }
+
+    .center {
+        margin-top: 30px;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Student Performance Dashboard</h2>
+
+<div class="row">
+
+    <!-- Marks Chart -->
+    <div class="card">
+        <h4>Marks by Subject</h4>
+        <canvas id="marksChart"></canvas>
+    </div>
+
+    <!-- Attendance Chart -->
+    <div class="card">
+        <h4>Attendance</h4>
+        <canvas id="attendanceChart"></canvas>
+    </div>
+
+</div>
+
+<!-- Progress Chart -->
+<div class="card center" style="max-width: 500px; margin: 30px auto;">
+    <h4>Monthly Progress</h4>
+    <canvas id="progressChart"></canvas>
+</div>
+
+<script>
+    // Marks (Bar Chart)
+    new Chart(document.getElementById('marksChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Math', 'Science', 'English', 'Computer'],
+            datasets: [{
+                label: 'Marks',
+                data: [85, 78, 90, 88],
+                backgroundColor: ['red', 'blue', 'green', 'orange']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+    // Attendance (Pie Chart)
+    new Chart(document.getElementById('attendanceChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Present', 'Absent'],
+            datasets: [{
+                data: [85, 15],
+                backgroundColor: ['green', 'red']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+    // Progress (Line Chart)
+    new Chart(document.getElementById('progressChart'), {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+                label: 'Performance',
+                data: [70, 75, 80, 85, 88],
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+
+</body>
+</html>

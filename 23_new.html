@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Personal Portfolio</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    nav {
+        background: #222;
+        color: white;
+        padding: 15px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Hero */
+    .hero {
+        background: #007bff;
+        color: white;
+        text-align: center;
+        padding: 120px 20px 80px;
+        margin-top: 60px;
+    }
+
+    /* Sections */
+    section {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .light {
+        background: #f4f4f4;
+    }
+
+    /* Projects */
+    .projects {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 1 1 250px;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 15px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .projects {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div><strong>MyPortfolio</strong></div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>Your Name</h1>
+    <p>Web Developer | Student</p>
+</div>
+
+<!-- About -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I am a passionate developer with interest in web development and problem solving.
+        I enjoy building responsive and interactive web applications.
+    </p>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="light">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Node.js</li>
+        <li>UI/UX Basics</li>
+    </ul>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="projects">
+        <div class="card">
+            <h4>To-Do App</h4>
+            <p>Task management application using JavaScript.</p>
+        </div>
+
+        <div class="card">
+            <h4>Shopping Cart</h4>
+            <p>Dynamic cart with real-time updates.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="light">
+    <h2>Contact</h2>
+    <p>Email: your@email.com</p>
+    <p>Phone: 1234567890</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    © 2026 Your Name
+</footer>
+
+</body>
+</html>

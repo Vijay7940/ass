@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Filtering</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .all { background: #007bff; }
+    .electronics { background: #28a745; }
+    .clothing { background: #ffc107; color: black; }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        background: white;
+        width: 200px;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+
+    .card h5 {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Product Filtering</h2>
+
+<!-- Buttons -->
+<div class="buttons">
+    <button class="all" onclick="filterProducts('all')">All</button>
+    <button class="electronics" onclick="filterProducts('electronics')">Electronics</button>
+    <button class="clothing" onclick="filterProducts('clothing')">Clothing</button>
+</div>
+
+<!-- Products -->
+<div class="container" id="productContainer"></div>
+
+<script>
+    const products = [
+        { name: "Laptop", category: "electronics", price: 50000 },
+        { name: "Phone", category: "electronics", price: 20000 },
+        { name: "T-Shirt", category: "clothing", price: 500 },
+        { name: "Jeans", category: "clothing", price: 1200 }
+    ];
+
+    const container = document.getElementById("productContainer");
+
+    function displayProducts(list) {
+        container.innerHTML = "";
+
+        list.forEach(product => {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <h5>${product.name}</h5>
+                <p>Category: ${product.category}</p>
+                <p>Price: ₹${product.price}</p>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    function filterProducts(category) {
+        if (category === "all") {
+            displayProducts(products);
+        } else {
+            const filtered = products.filter(p => p.category === category);
+            displayProducts(filtered);
+        }
+    }
+
+    // Initial load
+    displayProducts(products);
+</script>
+
+</body>
+</html>

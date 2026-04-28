@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Glossary - HTML Tags</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 15px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Digital Glossary of HTML Tags</h2>
+
+    <!-- Search -->
+    <input type="text" id="searchInput" placeholder="Search HTML tags...">
+
+    <!-- Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Tag</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody id="tagTable">
+            <tr><td>&lt;p&gt;</td><td>Defines a paragraph</td></tr>
+            <tr><td>&lt;h1&gt;</td><td>Defines a heading</td></tr>
+            <tr><td>&lt;a&gt;</td><td>Defines a hyperlink</td></tr>
+            <tr><td>&lt;img&gt;</td><td>Embeds an image</td></tr>
+            <tr><td>&lt;table&gt;</td><td>Defines a table</td></tr>
+            <tr><td>&lt;ul&gt;</td><td>Defines an unordered list</td></tr>
+            <tr><td>&lt;li&gt;</td><td>Defines a list item</td></tr>
+            <tr><td>&lt;div&gt;</td><td>Defines a division or section</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const tableRows = document.querySelectorAll("#tagTable tr");
+
+    searchInput.addEventListener("keyup", function () {
+        const filter = searchInput.value.toLowerCase();
+
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+</script>
+
+</body>
+</html>

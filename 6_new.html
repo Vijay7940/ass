@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Gallery</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Grid Layout */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        background: white;
+        width: 220px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center;
+        padding: 15px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .price {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        background: #28a745;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Product Gallery</h2>
+    <div class="row" id="productContainer"></div>
+</div>
+
+<script>
+    const products = [
+        { name: "Laptop", price: 55000, image: "https://via.placeholder.com/300" },
+        { name: "Smartphone", price: 20000, image: "https://via.placeholder.com/300" },
+        { name: "Headphones", price: 3000, image: "https://via.placeholder.com/300" },
+        { name: "Smartwatch", price: 7000, image: "https://via.placeholder.com/300" }
+    ];
+
+    const container = document.getElementById("productContainer");
+
+    function displayProducts() {
+        products.forEach((product, index) => {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <img src="${product.image}">
+                <h4>${product.name}</h4>
+                <p class="price">₹${product.price}</p>
+                <button onclick="buyProduct(${index})">Buy Now</button>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    function buyProduct(index) {
+        const product = products[index];
+        alert("You selected: " + product.name + " (₹" + product.price + ")");
+    }
+
+    displayProducts();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blog Layout</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+    }
+
+    /* Header */
+    header {
+        background: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Layout */
+    .container {
+        display: flex;
+        min-height: 80vh;
+    }
+
+    /* Sidebar */
+    aside {
+        width: 25%;
+        background: #ffffff;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    }
+
+    aside h4 {
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 5px;
+    }
+
+    aside ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    aside li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Content */
+    main {
+        width: 75%;
+        padding: 25px;
+    }
+
+    .blog-post {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+
+    .blog-post h3 {
+        margin-top: 0;
+    }
+
+    .date {
+        color: gray;
+        font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        aside, main {
+            width: 100%;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <h2>My Blog</h2>
+    <p>Welcome to my blog page</p>
+</header>
+
+<!-- Layout -->
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside>
+        <h4>Categories</h4>
+        <ul>
+            <li>Technology</li>
+            <li>Education</li>
+            <li>Travel</li>
+        </ul>
+
+        <h4>Recent Posts</h4>
+        <ul>
+            <li>Web Development Tips</li>
+            <li>Learning JavaScript</li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-post">
+            <h3>Blog Title</h3>
+            <p class="date">April 2026</p>
+
+            <p>
+                This is a sample blog content area. You can write articles,
+                share ideas, and display images here.
+            </p>
+
+            <p>
+                CSS Flexbox is used to create this layout, making it responsive
+                and easy to manage.
+            </p>
+        </div>
+    </main>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 My Blog | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

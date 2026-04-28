@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Weather Dashboard</title>
+
+<!-- Load Chart.js OFFLINE -->
+<script src="chart.js"></script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f4f4f4;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    /* Layout */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        flex: 1 1 400px;
+        max-width: 500px;
+    }
+
+    canvas {
+        max-width: 100%;
+    }
+
+    /* Pie center */
+    .center {
+        margin-top: 30px;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Weekly Weather Dashboard</h2>
+
+<div class="row">
+
+    <!-- Line Chart -->
+    <div class="card">
+        <h4>Temperature (°C)</h4>
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <!-- Bar Chart -->
+    <div class="card">
+        <h4>Rainfall (mm)</h4>
+        <canvas id="barChart"></canvas>
+    </div>
+
+</div>
+
+<!-- Pie Chart -->
+<div class="card center" style="max-width: 400px; margin: 30px auto;">
+    <h4>Weather Distribution</h4>
+    <canvas id="pieChart"></canvas>
+</div>
+
+<script>
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    // Line Chart (Temperature)
+    new Chart(document.getElementById('lineChart'), {
+        type: 'line',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Temperature',
+                data: [30, 32, 31, 29, 28, 27, 26],
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+    // Bar Chart (Rainfall)
+    new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Rainfall',
+                data: [5, 10, 8, 6, 7, 3, 4],
+                backgroundColor: 'green'
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+    // Pie Chart (Weather Distribution)
+    new Chart(document.getElementById('pieChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Sunny', 'Rainy', 'Cloudy'],
+            datasets: [{
+                data: [4, 2, 1],
+                backgroundColor: ['orange', 'blue', 'gray']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+
+</body>
+</html>

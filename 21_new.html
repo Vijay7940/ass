@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Weekly Timetable</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #333;
+        color: white;
+    }
+
+    tbody th {
+        background: #555;
+        color: white;
+    }
+
+    td {
+        background: #fafafa;
+    }
+
+    td:hover {
+        background: #e8f0fe;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Weekly Timetable</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Day/Time</th>
+            <th>9-10</th>
+            <th>10-11</th>
+            <th>11-12</th>
+            <th>12-1</th>
+            <th>1-2</th>
+            <th>2-3</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Monday -->
+        <tr>
+            <th>Monday</th>
+            <td>Math</td>
+            <td>DBMS</td>
+            <td rowspan="2">Lab</td>
+            <td>OS</td>
+            <td colspan="2">Lunch Break</td>
+        </tr>
+
+        <!-- Tuesday -->
+        <tr>
+            <th>Tuesday</th>
+            <td>CN</td>
+            <td>Math</td>
+            <td>DBMS</td>
+            <td colspan="2">Lunch Break</td>
+        </tr>
+
+        <!-- Wednesday -->
+        <tr>
+            <th>Wednesday</th>
+            <td colspan="2">Seminar</td>
+            <td>OS</td>
+            <td>CN</td>
+            <td colspan="2">Lunch Break</td>
+        </tr>
+
+        <!-- Thursday -->
+        <tr>
+            <th>Thursday</th>
+            <td>Math</td>
+            <td>DBMS</td>
+            <td>CN</td>
+            <td rowspan="2">Project</td>
+            <td colspan="2">Lunch Break</td>
+        </tr>
+
+        <!-- Friday -->
+        <tr>
+            <th>Friday</th>
+            <td>OS</td>
+            <td>Math</td>
+            <td>CN</td>
+            <td colspan="2">Lunch Break</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

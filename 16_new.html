@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz App</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .container {
+        width: 400px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    #question {
+        margin-bottom: 15px;
+    }
+
+    .option {
+        text-align: left;
+        margin: 8px 0;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Quiz Application</h2>
+
+    <div id="quizBox">
+        <h4 id="question"></h4>
+        <div id="options"></div>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    const quizData = [
+        {
+            question: "What does HTML stand for?",
+            options: ["Hyper Text Markup Language", "High Tech Machine Learning", "Hyperlinks Text Machine Language", "None"],
+            correct: 0
+        },
+        {
+            question: "Which language is used for styling?",
+            options: ["HTML", "Python", "CSS", "C++"],
+            correct: 2
+        },
+        {
+            question: "Which is a JavaScript framework?",
+            options: ["Django", "Laravel", "React", "Flask"],
+            correct: 2
+        }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const resultEl = document.getElementById("result");
+
+    function loadQuestion() {
+        const q = quizData[currentQ];
+        questionEl.innerText = q.question;
+
+        optionsEl.innerHTML = "";
+
+        q.options.forEach((opt, index) => {
+            const div = document.createElement("div");
+            div.classList.add("option");
+
+            div.innerHTML = `
+                <label>
+                    <input type="radio" name="option" value="${index}">
+                    ${opt}
+                </label>
+            `;
+
+            optionsEl.appendChild(div);
+        });
+    }
+
+    function nextQuestion() {
+        const selected = document.querySelector('input[name="option"]:checked');
+
+        if (!selected) {
+            alert("Please select an option!");
+            return;
+        }
+
+        if (parseInt(selected.value) === quizData[currentQ].correct) {
+            score++;
+        }
+
+        currentQ++;
+
+        if (currentQ < quizData.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        document.getElementById("quizBox").style.display = "none";
+        resultEl.innerHTML = `Your Score: ${score} / ${quizData.length}`;
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>
